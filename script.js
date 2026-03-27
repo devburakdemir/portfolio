@@ -111,16 +111,28 @@ window.addEventListener(
   { passive: false }
 );
 
-/* Navbar tıklamalarında animasyonlu geçiş */
 navLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
-    event.preventDefault();
-
     const targetId = link.dataset.section;
+    const targetSection = document.getElementById(targetId);
     const targetIndex = sections.findIndex(
       (section) => section.id === targetId
     );
 
+    /* Mobilde normal sayfa akışı var, anchor scroll çalışsın */
+    if (window.innerWidth <= 900) {
+      event.preventDefault();
+
+      targetSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      return;
+    }
+
+    /* Masaüstünde panel animasyonu çalışsın */
+    event.preventDefault();
     goToSection(targetIndex);
   });
 });
