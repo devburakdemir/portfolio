@@ -432,6 +432,11 @@ body {
 
 /* Responsive */
 @media (max-width: 900px) {
+
+  .panel-section {
+  scroll-margin-top: 170px;
+  }
+
   body {
     overflow: auto;
   }
