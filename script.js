@@ -123,10 +123,17 @@ navLinks.forEach((link) => {
     if (window.innerWidth <= 900) {
       event.preventDefault();
 
-      targetSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+      const header = document.querySelector(".site-header");
+      const headerHeight = header ? header.offsetHeight : 0;
+      const extraOffset = 20;
+
+     const sectionTop =
+  targetSection.getBoundingClientRect().top + window.pageYOffset;
+
+window.scrollTo({
+  top: sectionTop - headerHeight - extraOffset,
+  behavior: "smooth"
+});
 
       return;
     }

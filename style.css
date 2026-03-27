@@ -433,6 +433,10 @@ body {
 /* Responsive */
 @media (max-width: 900px) {
 
+    html {
+    scroll-padding-top: 170px;
+  }
+  
   .panel-section {
   scroll-margin-top: 170px;
   }
